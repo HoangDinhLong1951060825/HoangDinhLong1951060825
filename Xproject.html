@@ -1,0 +1,24 @@
+<?php
+// Thông tin kết nối cơ sở dữ liệu
+$hostname = 'localhost';  // Tên máy chủ
+$username = 'root';  // Tên người dùng
+$password = '610';  // Mật khẩu
+$database = '';  // Tên cơ sở dữ liệu
+
+try {
+    // Kết nối cơ sở dữ liệu
+    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    
+    // Thiết lập chế độ báo lỗi PDO
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    echo "Kết nối đến cơ sở dữ liệu thành công";
+    
+    // Thực hiện các truy vấn hoặc thao tác với cơ sở dữ liệu ở đây
+    
+    // Đóng kết nối
+    $conn = null;
+} catch(PDOException $e) {
+    echo "Lỗi kết nối cơ sở dữ liệu: " . $e->getMessage();
+}
+?>
